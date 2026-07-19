@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Monad Liquidity Map Prototype</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Monad Liquidity Map</p>
+        <h1>Watch liquidity move like water.</h1>
+        <p class="lede">A deterministic prototype showing bridge inflow, wallet allocation, DEX pool liquidity, vault routing, and rewards emission from canonical flow events.</p>
+        <div class="stats" id="stats"></div>
+      </section>
+      <section class="map-card">
+        <div class="map-header">
+          <div>
+            <h2>Live Prototype Flow Graph</h2>
+            <p id="snapshot">Loading snapshot…</p>
+          </div>
+          <span class="badge">Fixture Data</span>
+        </div>
+        <svg id="map" viewBox="0 0 1000 560" role="img" aria-label="Liquidity flow map"></svg>
+      </section>
+      <section class="events">
+        <h2>Canonical Flow Events</h2>
+        <div id="events"></div>
+      </section>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
