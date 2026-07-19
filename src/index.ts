@@ -1,2 +1,35 @@
 // Canonical Data Layer
-export * from "./canonical/ids.js";\nexport * from "./canonical/types.js";\nexport * from "./canonical/validation.js";\nexport * from "./canonical/registry.js";\n\n// Data Acquisition\nexport * from "./acquisition/types.js";\nexport * from "./acquisition/memory-provider.js";\n\n// Data Normalization Engine\nexport * from "./normalization/types.js";\nexport * from "./normalization/flow.js";\n\n// Relationship Graph Engine\nexport * from "./graph/types.js";\nexport * from "./graph/engine.js";\n\n// Liquidity Attribution Engine\nexport * from "./attribution/engine.js";\n\n// Snapshot & Historical Data Engine\nexport * from "./snapshots/engine.js";\n\n// Analytics & Calculation Engine\nexport * from "./analytics/engine.js";\n\n// Public API Layer\nexport * from "./api/handlers.js";\n\n// Observability & Operations\nexport * from "./observability/metrics.js";\n\n// Frontend Application\nexport * from "./frontend/view-model.js";
+export * from "./canonical/ids.js";
+export * from "./canonical/types.js";
+export * from "./canonical/validation.js";
+export * from "./canonical/registry.js";
+
+// Data Acquisition
+export * from "./acquisition/types.js";
+export * from "./acquisition/memory-provider.js";
+
+// Data Normalization Engine
+export * from "./normalization/types.js";
+export * from "./normalization/flow.js";
+
+// Relationship Graph Engine
+export * from "./graph/types.js";
+export * from "./graph/engine.js";
+
+// Liquidity Attribution Engine
+export * from "./attribution/engine.js";
+
+// Snapshot & Historical Data Engine
+export * from "./snapshots/engine.js";
+
+// Analytics & Calculation Engine
+export * from "./analytics/engine.js";
+
+// Public API Layer
+export * from "./api/handlers.js";
+
+// Observability & Operations
+export * from "./observability/metrics.js";
+
+// Frontend Application
+export * from "./frontend/view-model.js";
