@@ -1,6 +1,4 @@
-# BuildAnything Hackathon
-
-## Monad Liquidity Map
+Monad Liquidity Atlas
 
 This project is a graph-based liquidity intelligence layer for Monad. It is designed to turn raw on-chain and provider data into a visual liquidity map where users can understand how value moves across wallets, assets, pools, bridges, lending markets, vaults, staking systems, rewards, and protocols.
 
