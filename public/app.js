@@ -8,7 +8,7 @@ const coordinates = {
   "asset:monad-143:usdc": [925, 220],
 };
 
-const data = await fetch('/prototype/data.json').then((response) => response.json());
+const data = await fetch('./prototype/data.json').then((response) => response.json());
 document.querySelector('#snapshot').textContent = `${data.snapshotId} · generated ${data.generatedAt}`;
 document.querySelector('#stats').innerHTML = [
   ['Nodes', data.viewModel.nodeCount],
