@@ -1,6 +1,4 @@
-# BuildAnything Hackathon
-
-## Monad Liquidity Map
+Monad Liquidity Atlas
 
 This project is a graph-based liquidity intelligence layer for Monad. It is designed to turn raw on-chain and provider data into a visual liquidity map where users can understand how value moves across wallets, assets, pools, bridges, lending markets, vaults, staking systems, rewards, and protocols.
 
@@ -196,12 +194,3 @@ Run the current checks with:
 
 ```bash
 npm run check
-```
-
-Run the working prototype locally with:
-
-```bash
-npm run prototype:serve
-```
-
-The prototype serves a static web application from `public/`, generates deterministic fixture data at `public/prototype/data.json`, and renders animated liquidity pipes from bridge, wallet, pool, vault, and reward-distributor entities. A captured preview is stored at `public/screenshots/prototype.png`; regenerate it while the prototype server is running with `npm run prototype:screenshot`.
