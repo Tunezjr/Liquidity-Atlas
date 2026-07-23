@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm run prototype:build",
+  "outputDirectory": "public",
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
