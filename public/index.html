@@ -3,30 +3,95 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Monad Liquidity Map Prototype</title>
+    <meta name="theme-color" content="#050817" />
+    <title>Liquidity Atlas Command Center</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
     <main class="shell">
-      <section class="hero">
-        <p class="eyebrow">Monad Liquidity Map</p>
-        <h1>Watch liquidity move like water.</h1>
-        <p class="lede">A deterministic prototype showing bridge inflow, wallet allocation, DEX pool liquidity, vault routing, and rewards emission from canonical flow events.</p>
-        <div class="stats" id="stats"></div>
-      </section>
-      <section class="map-card">
-        <div class="map-header">
-          <div>
-            <h2>Live Prototype Flow Graph</h2>
-            <p id="snapshot">Loading snapshot…</p>
+      <section class="hero panel-glow">
+        <div class="hero-copy">
+          <p class="eyebrow">Monad Liquidity Atlas</p>
+          <h1>Institutional-grade liquidity flow intelligence.</h1>
+          <p class="lede">Explore capital movement across bridges, wallets, pools, vaults, rewards, and assets through a cinematic real-time graph built from deterministic canonical events.</p>
+          <div class="hero-actions" aria-label="Prototype actions">
+            <a class="button primary" href="#map-panel">Open command map</a>
+            <a class="button ghost" href="#events-panel">Audit flows</a>
           </div>
-          <span class="badge">Fixture Data</span>
         </div>
-        <svg id="map" viewBox="0 0 1000 560" role="img" aria-label="Liquidity flow map"></svg>
+        <aside class="signal-card" aria-label="System status">
+          <span class="signal-pulse"></span>
+          <p>Data plane</p>
+          <strong>Online</strong>
+          <small id="snapshot">Loading snapshot…</small>
+        </aside>
       </section>
-      <section class="events">
-        <h2>Canonical Flow Events</h2>
-        <div id="events"></div>
+
+      <section class="stats-grid" id="stats" aria-label="Liquidity summary"></section>
+
+      <section class="workspace" id="map-panel">
+        <aside class="control-panel glass-card">
+          <div class="section-heading">
+            <p class="eyebrow">Controls</p>
+            <h2>Risk lens</h2>
+          </div>
+          <label class="field">
+            <span>Node type</span>
+            <select id="kind-filter">
+              <option value="all">All nodes</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Minimum edge weight</span>
+            <input id="weight-filter" type="range" min="0" max="250" value="0" step="5" />
+            <output id="weight-value">0</output>
+          </label>
+          <label class="toggle">
+            <input id="flow-filter" type="checkbox" />
+            <span>Flow edges only</span>
+          </label>
+          <div class="legend" aria-label="Graph legend">
+            <span><i class="dot bridge"></i>Bridge</span>
+            <span><i class="dot account"></i>Account</span>
+            <span><i class="dot pool"></i>Pool</span>
+            <span><i class="dot vault"></i>Vault</span>
+            <span><i class="dot asset"></i>Asset</span>
+          </div>
+        </aside>
+
+        <section class="map-card glass-card">
+          <div class="map-header">
+            <div>
+              <p class="eyebrow">Live prototype graph</p>
+              <h2>Liquidity command map</h2>
+            </div>
+            <span class="badge">Fixture data</span>
+          </div>
+          <svg id="map" viewBox="0 0 1160 680" role="img" aria-label="Liquidity flow map"></svg>
+        </section>
+
+        <aside class="detail-panel glass-card" aria-live="polite">
+          <div class="section-heading">
+            <p class="eyebrow">Inspector</p>
+            <h2 id="detail-title">Select a node</h2>
+          </div>
+          <div id="details" class="details-empty">Hover or click the graph to inspect capital pathways, flow weights, and canonical identifiers.</div>
+        </aside>
+      </section>
+
+      <section class="analytics-row">
+        <article class="glass-card analytics-card">
+          <p class="eyebrow">Attribution</p>
+          <h2>Net movement by entity</h2>
+          <div id="attributions" class="bars"></div>
+        </article>
+        <article class="glass-card analytics-card" id="events-panel">
+          <p class="eyebrow">Event stream</p>
+          <h2>Canonical flow events</h2>
+          <div id="events" class="events-list"></div>
+        </article>
       </section>
     </main>
     <script type="module" src="./app.js"></script>
