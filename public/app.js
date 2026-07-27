@@ -17,7 +17,9 @@ const visualKind = (node) => {
   if (signature.includes('bridge')) return 'bridge';
   if (signature.includes('pool')) return 'pool';
   if (signature.includes('vault')) return 'vault';
-  if (signature.includes('reward') || signature.includes('distributor')) return 'protocol';
+  if (signature.includes('reward') || signature.includes('distributor') || signature.includes('protocol') || signature.includes('exchange') || signature.includes('kuru') || signature.includes('ambient')) return 'protocol';
+  if (signature.includes('lending') || signature.includes('market')) return 'market';
+  if (signature.includes('validator')) return 'validator';
   return node.kind;
 };
 const edgeLabel = (edge) => `${getNode(edge.fromNodeId).label} → ${getNode(edge.toNodeId).label}`;
@@ -35,14 +37,24 @@ const kindColors = {
 
 function layoutGraph(graphNodes) {
   const lanes = {
-    bridge: { x: 118, y: 210 },
-    entity: { x: 340, y: 370 },
-    pool: { x: 580, y: 220 },
-    vault: { x: 800, y: 380 },
-    protocol: { x: 580, y: 500 },
-    market: { x: 800, y: 210 },
-    validator: { x: 580, y: 90 },
-    asset: { x: 1010, y: 190 },
+    bridge: { x: 100, y: 160 },
+    entity: { x: 300, y: 320 },
+    pool: { x: 520, y: 180 },
+    vault: { x: 760, y: 340 },
+    protocol: { x: 520, y: 480 },
+    market: { x: 760, y: 160 },
+    validator: { x: 980, y: 420 },
+    asset: { x: 980, y: 140 },
+  };
+  const spreads = {
+    bridge: 90,
+    entity: 95,
+    pool: 100,
+    vault: 95,
+    protocol: 90,
+    market: 90,
+    validator: 80,
+    asset: 110,
   };
   const counts = new Map();
   return new Map(graphNodes.map((node) => {
@@ -50,10 +62,10 @@ function layoutGraph(graphNodes) {
     const lane = lanes[kind] ?? lanes.entity;
     const index = counts.get(kind) ?? 0;
     counts.set(kind, index + 1);
-    const spread = kind === 'asset' ? 150 : 1;
-    const x = lane.x + Math.sin(index * 1.7) * 22;
-    const y = lane.y + (index - 0.5) * spread;
-    return [node.id, [Math.max(80, Math.min(1080, x)), Math.max(82, Math.min(590, y))]];
+    const spread = spreads[kind] ?? 90;
+    const x = lane.x + Math.sin(index * 1.9) * 28;
+    const y = lane.y + index * spread - (spread * 0.4);
+    return [node.id, [Math.max(70, Math.min(1090, x)), Math.max(70, Math.min(610, y))]];
   }));
 }
 
