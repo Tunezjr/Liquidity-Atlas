@@ -19,6 +19,7 @@
           <div class="hero-actions" aria-label="Prototype actions">
             <a class="button primary" href="#map-panel">Open command map</a>
             <a class="button ghost" href="#events-panel">Audit flows</a>
+            <button class="button ghost" id="about-btn" type="button">About / Architecture</button>
           </div>
         </div>
         <aside class="signal-card" aria-label="System status">
@@ -94,6 +95,42 @@
         </article>
       </section>
     </main>
+
+    <div id="about-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-card glass-card" role="dialog" aria-labelledby="about-title">
+        <header>
+          <p class="eyebrow">Architecture</p>
+          <h2 id="about-title">Liquidity Atlas</h2>
+          <button class="modal-close" type="button" data-close aria-label="Close">×</button>
+        </header>
+        <div class="modal-body">
+          <p>Graph-based liquidity intelligence for Monad. Value is modeled as water flowing between containers.</p>
+          <ul class="arch-list">
+            <li><strong>Nodes</strong> — assets, wallets, pools, vaults, bridges, protocols, validators</li>
+            <li><strong>Edges</strong> — transfers, ownership, collateral, staking, bridging, dependencies</li>
+            <li><strong>Snapshots</strong> — immutable, content-addressed points in time</li>
+            <li><strong>Events</strong> — observed movements that drive attribution</li>
+          </ul>
+          <p class="eyebrow" style="margin-top:1.25rem">Build layers</p>
+          <ol class="arch-list numbered">
+            <li>Canonical Data Layer</li>
+            <li>Data Acquisition</li>
+            <li>Normalization Engine</li>
+            <li>Relationship Graph Engine</li>
+            <li>Liquidity Attribution Engine</li>
+            <li>Snapshot &amp; Historical Engine</li>
+            <li>Analytics Engine</li>
+            <li>Public API</li>
+            <li>Frontend Command Center</li>
+            <li>Observability</li>
+            <li>Testing &amp; Hardening</li>
+          </ol>
+          <p style="margin-top:1.25rem;color:var(--muted);font-size:14px">This prototype visualizes deterministic fixture data produced by the core pipeline. Production adapters plug in without changing downstream contracts.</p>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="./app.js"></script>
   </body>
 </html>

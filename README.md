@@ -1,10 +1,10 @@
-# BuildAnything Hackathon
+# Liquidity Atlas
 
-## Monad Liquidity Map
+**Live Demo:** https://liquidity-atlas.vercel.app
 
-This project is a graph-based liquidity intelligence layer for Monad. It is designed to turn raw on-chain and provider data into a visual liquidity map where users can understand how value moves across wallets, assets, pools, bridges, lending markets, vaults, staking systems, rewards, and protocols.
+Graph-based liquidity intelligence layer for Monad. Turns raw on-chain and provider data into a visual liquidity map so users can understand how value moves across wallets, assets, pools, bridges, lending markets, vaults, staking systems, rewards, and protocols.
 
-The product metaphor is water flow:
+## Product Metaphor — Water Flow
 
 - **Nodes** represent assets, positions, protocols, accounts, pools, markets, vaults, bridges, validators, and other liquidity containers.
 - **Edges** represent liquidity flow, ownership, dependency, collateralization, wrapping, lending, borrowing, staking, bridging, and other value-transfer relationships.
@@ -135,13 +135,15 @@ Render the liquidity map and supporting product experience.
 
 Initial scope:
 
-- Visual liquidity map.
-- Water-flow animations.
-- Entity and protocol detail panels.
-- Time-range controls.
-- Asset and protocol filters.
-- Snapshot playback.
-- Confidence and stale-data indicators.
+- Visual liquidity map with animated flow pipes.
+- Interactive command-center UI (node/edge filters, weight threshold, flow-only toggle).
+- Node and edge inspector panel with canonical IDs, inbound/outbound flow, and connections.
+- Net attribution bars by entity.
+- Canonical event stream.
+- Entity and protocol detail views.
+- Responsive cinematic dark theme with glassmorphism.
+- Time-range controls and snapshot playback (future).
+- Confidence and stale-data indicators (future).
 
 ### 10. Observability & Operations
 
@@ -177,7 +179,7 @@ Build each layer so downstream layers depend only on canonical internal contract
 
 ## Current Implementation
 
-The repository now includes working foundations for build layers 1 through 10. These modules are intentionally small, deterministic, and fixture-friendly so production adapters and storage can be added without changing downstream contracts.
+The repository includes working foundations for build layers 1 through 10. These modules are intentionally small, deterministic, and fixture-friendly so production adapters and storage can be added without changing downstream contracts.
 
 Implemented capabilities by layer:
 
@@ -189,7 +191,7 @@ Implemented capabilities by layer:
 6. **Snapshot & Historical Data Engine** — immutable content-addressed snapshot creation with deterministic SHA-256 hashes and version metadata.
 7. **Analytics & Calculation Engine** — deterministic flow summaries and raw totals grouped by asset.
 8. **Public API Layer** — versioned API response envelopes for graph payloads.
-9. **Frontend Application** — liquidity-map view-model projection for node counts, edge counts, and animated flow edges.
+9. **Frontend Application** — interactive Liquidity Atlas Command Center with filters, inspector, attribution bars, event stream, and cinematic visualization of the fixture graph.
 10. **Observability & Operations** — pipeline metric contracts and an in-memory metrics collector for stage-level observability.
 
 Run the current checks with:
@@ -204,4 +206,6 @@ Run the working prototype locally with:
 npm run prototype:serve
 ```
 
-The prototype serves a static web application from `public/`, generates deterministic fixture data at `public/prototype/data.json`, and renders animated liquidity pipes from bridge, wallet, pool, vault, and reward-distributor entities. A captured preview is stored at `public/screenshots/prototype.png`; regenerate it while the prototype server is running with `npm run prototype:screenshot`.
+The prototype serves a static web application from `public/`, generates deterministic fixture data at `public/prototype/data.json`, and renders the Command Center UI. Open http://localhost:4173 (or the port printed by the server) to explore the map.
+
+**Live demo:** https://liquidity-atlas.vercel.app
