@@ -215,3 +215,25 @@ renderGraph();
 renderAttributions();
 renderEvents();
 showNode(nodes[0]);
+
+// About / Architecture modal
+const aboutModal = document.getElementById('about-modal');
+const aboutBtn = document.getElementById('about-btn');
+if (aboutBtn && aboutModal) {
+  aboutBtn.addEventListener('click', () => {
+    aboutModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  });
+  aboutModal.querySelectorAll('[data-close]').forEach((el) => {
+    el.addEventListener('click', () => {
+      aboutModal.hidden = true;
+      document.body.style.overflow = '';
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !aboutModal.hidden) {
+      aboutModal.hidden = true;
+      document.body.style.overflow = '';
+    }
+  });
+}
